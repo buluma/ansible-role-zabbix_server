@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-zabbix_server/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.6...HEAD)
+
+**Merged pull requests:**
+
+- retry [\#3](https://github.com/buluma/ansible-role-zabbix_server/pull/3) ([buluma](https://github.com/buluma))
+
 ## [1.0.6](https://github.com/buluma/ansible-role-zabbix_server/tree/1.0.6) (2022-03-28)
 
 [Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.5...1.0.6)
