@@ -2,11 +2,16 @@
 
 ## [Unreleased](https://github.com/buluma/ansible-role-zabbix_server/tree/HEAD)
 
-[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.6...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.7...HEAD)
 
 **Merged pull requests:**
 
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#4](https://github.com/buluma/ansible-role-zabbix_server/pull/4) ([dependabot[bot]](https://github.com/apps/dependabot))
 - retry [\#3](https://github.com/buluma/ansible-role-zabbix_server/pull/3) ([buluma](https://github.com/buluma))
+
+## [1.0.7](https://github.com/buluma/ansible-role-zabbix_server/tree/1.0.7) (2022-04-25)
+
+[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.6...1.0.7)
 
 ## [1.0.6](https://github.com/buluma/ansible-role-zabbix_server/tree/1.0.6) (2022-03-28)
 
