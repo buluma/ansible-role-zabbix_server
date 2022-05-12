@@ -9,11 +9,8 @@ variables:
   PY_COLORS: 1
 
 molecule:
-<<<<<<< Updated upstream
-=======
   stage: build
   allow_failure: true
->>>>>>> Stashed changes
   script:
     - image=${image} tag=${tag} molecule test
   retry: 1
@@ -29,8 +26,6 @@ molecule:
         tag: "bionic"
       - image: "docker-ubuntu-systemd"
         tag: "focal"
-      - image: "docker-ubuntu-systemd"
-        tag: "jammy"
 
 testing:
   script:
@@ -50,8 +45,6 @@ testing:
         tag: "bionic"
       - image: "docker-ubuntu-systemd"
         tag: "focal"
-      - image: "docker-ubuntu-systemd"
-        tag: "jammy"
 
 galaxy:
   script:
@@ -73,10 +66,6 @@ role_testing:
         tag: "bionic"
       - image: "docker-ubuntu-systemd"
         tag: "focal"
-<<<<<<< Updated upstream
-=======
-      - image: "docker-ubuntu-systemd"
-        tag: "jammy"
 
 release_job:
   stage: .post
@@ -95,4 +84,3 @@ release_job:
     paths:
       - /
     expire_in: 1 day
->>>>>>> Stashed changes
