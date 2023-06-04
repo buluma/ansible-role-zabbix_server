@@ -6,9 +6,8 @@ _zabbix_server_requirements:
     - python3-mysqldb
   RedHat-7:
     - MySQL-python
-  RedHat: &redhat_requirements
+  RedHat:
     - python3-PyMySQL
-  Rocky: *redhat_requirements
   Suse:
     - python3-PyMySQL
 
@@ -18,4 +17,4 @@ _zabbix_server_docdir:
   default: /usr/share/doc
   Suse: /usr/share/doc/packages
 
-zabbix_server_docdir: "{{ _zabbix_server_docdir[ansible_os_family] | default(_zabbix_server_docdir['default'] ) }}"
+zabbix_server_docdir: "{{ _zabbix_server_docdir[ansible_os_family] | default(_zabbix_server_docdir['default']) }}"
