@@ -2,9 +2,9 @@
 
 Install and configure zabbix_server on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|---------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-zabbix_server/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-zabbix_server/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-zabbix_server/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-zabbix_server)|[![quality](https://img.shields.io/ansible/quality/57973)](https://galaxy.ansible.com/buluma/zabbix_server)|[![downloads](https://img.shields.io/ansible/role/d/57973)](https://galaxy.ansible.com/buluma/zabbix_server)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/pulls/)|
+|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-zabbix_server/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-zabbix_server/actions)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-zabbix_server/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-zabbix_server)|[![downloads](https://img.shields.io/ansible/role/d/4889)](https://galaxy.ansible.com/buluma/zabbix_server)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
