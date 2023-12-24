@@ -1,10 +1,10 @@
-# [Ansible role zabbix_server](#zabbix_server)
+# Ansible role [zabbix_server](https://galaxy.ansible.com/ui/standalone/roles/buluma/zabbix_server/documentation)
 
 Install and configure zabbix_server on your system.
 
-|GitHub|Version|Issues|Pull Requests|
-|------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-zabbix_server/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-zabbix_server/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/pulls/)|
+|GitHub|Version|Issues|Pull Requests|Downloads|
+|------|-------|------|-------------|---------|
+|[![github](https://github.com/buluma/ansible-role-zabbix_server/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-zabbix_server/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-zabbix_server.svg)](https://github.com/buluma/ansible-role-zabbix_server/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/zabbix_server)](https://galaxy.ansible.com/ui/standalone/roles/buluma/zabbix_server/documentation)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -115,13 +115,11 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 ## [License](#license)
 
-[Apache-2.0](https://github.com/buluma/ansible-role-zabbix_server/blob/master/LICENSE).
+[Apache-2.0](https://github.com/buluma/ansible-role-zabbix_server/blob/master/LICENSE)
 
 ## [Author Information](#author-information)
 
-[buluma](https://buluma.github.io/)
+[Shadow Walker](https://buluma.github.io/)
 
-
-### [Special Thanks](#special-thanks)
 
 Template inspired by [Robert de Bock](https://github.com/robertdebock)
