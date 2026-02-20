@@ -1,0 +1,21 @@
+digraph PhiloDilemma {
+  label = "Michael Buluma" ;
+  overlap=false
+  {
+    "zabbix_server" [fillcolor=yellow style=filled penwidth=3]
+    "buluma.bootstrap" [fillcolor=green style=filled]
+    "buluma.ca_certificates" [fillcolor=green style=filled]
+    "buluma.core_dependencies" [fillcolor=green style=filled]
+    "buluma.container_docs" [fillcolor=green style=filled]
+    "buluma.mysql" [fillcolor=green style=filled]
+    "buluma.selinux" [fillcolor=green style=filled]
+    "buluma.zabbix_repository" [fillcolor=green style=filled]
+  }
+  "zabbix_server" -> "buluma.bootstrap"
+  "zabbix_server" -> "buluma.ca_certificates"
+  "zabbix_server" -> "buluma.core_dependencies"
+  "zabbix_server" -> "buluma.container_docs"
+  "zabbix_server" -> "buluma.mysql"
+  "zabbix_server" -> "buluma.selinux"
+  "zabbix_server" -> "buluma.zabbix_repository"
+}
