@@ -41,8 +41,6 @@ jobs:
       matrix:
         distro:
           - image: "centos"
-            tag: "8"
-          - image: "centos"
             tag: "latest"
           - image: "docker-molecule-images"
             tag: "debian_latest"
