@@ -1,34 +1,28 @@
 ---
-# tasks file for zabbix_server
-
 - name: Import assert.yml
   ansible.builtin.import_tasks:
     file: assert.yml
-  run_once: true
   delegate_to: localhost
-
+  run_once: true
 - name: Install zabbix-server requirements
   ansible.builtin.package:
     name: "{{ zabbix_server_requirements }}"
     state: present
-
 - name: Install zabbix_server
   ansible.builtin.package:
     name:
       - zabbix-server-mysql
       - zabbix-sql-scripts
     state: present
-
 - name: Unarchive zabbix schema
   ansible.builtin.command:
     cmd: gunzip /usr/share/zabbix-sql-scripts/mysql/server.sql.gz
     creates: /usr/share/zabbix-sql-scripts/mysql/server.sql
+  loop_control:
+    label: "{{ item.path }}"
   notify:
     - Import zabbix schema
     - Restart zabbix_server
-  loop_control:
-    label: "{{ item.path }}"
-
 - name: Configure selinux
   when:
     - ansible_selinux.status is defined
@@ -37,40 +31,36 @@
     - name: Set selinux settings for zabbix_server
       ansible.posix.seboolean:
         name: "{{ item }}"
-        state: true
         persistent: true
+        state: true
       loop:
         - httpd_can_connect_zabbix
         - httpd_can_network_connect_db
         - zabbix_can_network
-
     - name: Place selinux type enforcement
       ansible.builtin.copy:
-        src: my-zabbixserver.te
         dest: /etc/zabbix/my-zabbixserver.te
         mode: "0644"
+        src: my-zabbixserver.te
       notify:
         - Create selinux mod for zabbix_server
         - Create selinux pp for zabbix_server
         - Load selinux pp for zabbix_server
-
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
-
 - name: Configure zabbix_server
   ansible.builtin.template:
-    src: zabbix_server.conf.j2
     dest: /etc/zabbix/zabbix_server.conf
     mode: "0644"
+    src: zabbix_server.conf.j2
   notify:
     - Restart zabbix_server
-
 - name: Start and enable zabbix_server
   ansible.builtin.service:
+    enabled: true
     name: zabbix-server
     state: started
-    enabled: true
-  when:
-    - not ci
   vars:
     ci: "{{ lookup('env', 'CI') }}"
+  when:
+    - not ci

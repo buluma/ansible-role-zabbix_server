@@ -1,15 +1,12 @@
 ---
-# vars file for zabbix_server
-
 _zabbix_server_requirements:
   Debian:
     - python3-mysqldb
-  RedHat-7:
-    - MySQL-python
   RedHat:
     - python3-PyMySQL
+  RedHat-7:
+    - MySQL-python
   Suse:
     - python3-PyMySQL
-
 zabbix_server_requirements: "{{ _zabbix_server_requirements[ansible_os_family ~ '-' ~ ansible_distribution_major_version] | default (_zabbix_server_requirements[ansible_os_family]
   ) }}"

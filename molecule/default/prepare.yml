@@ -1,22 +1,20 @@
----
-- name: Prepare
+- become: true
+  gather_facts: false
   hosts: all
-  gather_facts: no
-  become: yes
-
+  name: Prepare
   roles:
-    - role: buluma.bootstrap
-    - role: buluma.selinux
-    - role: buluma.container_docs
-    - role: buluma.mysql
-      mysql_databases:
-        - name: zabbix
-          encoding: utf8
-          collation: utf8_bin
-      mysql_users:
-        - name: zabbix
-          password: zabbix
-          priv: "zabbix.*:ALL"
-    - role: buluma.ca_certificates
-    - role: buluma.zabbix_repository
-    - role: buluma.core_dependencies
+  - role: buluma.bootstrap
+  - role: buluma.selinux
+  - role: buluma.container_docs
+  - mysql_databases:
+    - collation: utf8_bin
+      encoding: utf8
+      name: zabbix
+    mysql_users:
+    - name: zabbix
+      password: zabbix
+      priv: zabbix.*:ALL
+    role: buluma.mysql
+  - role: buluma.ca_certificates
+  - role: buluma.zabbix_repository
+  - role: buluma.core_dependencies
