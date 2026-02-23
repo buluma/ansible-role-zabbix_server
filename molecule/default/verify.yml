@@ -1,13 +1,13 @@
 ---
-  - become: true
-    gather_facts: false
-    hosts: all
-    name: Verify
-    tasks:
-      - ansible.builtin.wait_for:
-          port: 10051
-        name: check if port 10051 is open
-        vars:
-          ci: '{{ lookup(''env'', ''CI'') }}'
-        when:
-          - not ci
+- become: true
+  gather_facts: false
+  hosts: all
+  name: Verify
+  tasks:
+  - ansible.builtin.wait_for:
+      port: 10051
+    name: check if port 10051 is open
+    vars:
+      ci: '{{ lookup(''env'', ''CI'') }}'
+    when:
+    - not ci

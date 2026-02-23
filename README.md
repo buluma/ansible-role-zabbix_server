@@ -12,38 +12,38 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
 ```yaml
 ---
-  - become: true
-    gather_facts: true
-    hosts: all
-    name: Converge
-    roles:
-      - role: buluma.zabbix_server
+- become: true
+  gather_facts: true
+  hosts: all
+  name: Converge
+  roles:
+  - role: buluma.zabbix_server
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-zabbix_server/blob/master/molecule/default/prepare.yml):
 
 ```yaml
 ---
-  - become: true
-    gather_facts: false
-    hosts: all
-    name: Prepare
-    roles:
-      - role: buluma.bootstrap
-      - role: buluma.selinux
-      - role: buluma.container_docs
-      - mysql_databases:
-          - collation: utf8_bin
-            encoding: utf8
-            name: zabbix
-        mysql_users:
-          - name: zabbix
-            password: zabbix
-            priv: zabbix.*:ALL
-        role: buluma.mysql
-      - role: buluma.ca_certificates
-      - role: buluma.zabbix_repository
-      - role: buluma.core_dependencies
+- become: true
+  gather_facts: false
+  hosts: all
+  name: Prepare
+  roles:
+  - role: buluma.bootstrap
+  - role: buluma.selinux
+  - role: buluma.container_docs
+  - mysql_databases:
+    - collation: utf8_bin
+      encoding: utf8
+      name: zabbix
+    mysql_users:
+    - name: zabbix
+      password: zabbix
+      priv: zabbix.*:ALL
+    role: buluma.mysql
+  - role: buluma.ca_certificates
+  - role: buluma.zabbix_repository
+  - role: buluma.core_dependencies
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
