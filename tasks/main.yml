@@ -26,8 +26,8 @@
   # Separator for the pre-commit handler parser.
 - name: Configure selinux
   when:
-    - ansible_selinux.status is defined
-    - ansible_selinux.status == "enabled"
+    - ansible_facts.selinux.status is defined
+    - ansible_facts.selinux.status == "enabled"
   block:
     - name: Set selinux settings for zabbix_server
       ansible.posix.seboolean:
