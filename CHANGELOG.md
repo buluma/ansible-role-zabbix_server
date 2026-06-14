@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-zabbix_server/tree/HEAD)
+## [26.6.0](https://github.com/buluma/ansible-role-zabbix_server/tree/26.6.0) (2026-06-14)
 
-[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.9...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/1.0.9...26.6.0)
 
 **Closed issues:**
 
@@ -14,6 +14,8 @@
 
 **Merged pull requests:**
 
+- Bump ansible/ansible-lint from 26.1.1 to 26.2.0 [\#24](https://github.com/buluma/ansible-role-zabbix_server/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 4 to 6 [\#23](https://github.com/buluma/ansible-role-zabbix_server/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump release-drafter/release-drafter from 5 to 6 [\#17](https://github.com/buluma/ansible-role-zabbix_server/pull/17) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [1.0.9](https://github.com/buluma/ansible-role-zabbix_server/tree/1.0.9) (2022-06-25)
