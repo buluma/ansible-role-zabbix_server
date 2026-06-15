@@ -12,7 +12,7 @@
     cmd: semodule -i /etc/zabbix/my-zabbixserver.pp
   changed_when: true
 - name: Import zabbix schema
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     login_host: "{{ zabbix_server_database_host | default(omit) }}"
     login_password: "{{ zabbix_server_database_password }}"
     login_user: "{{ zabbix_server_database_user }}"
