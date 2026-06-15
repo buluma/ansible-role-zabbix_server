@@ -3,6 +3,28 @@
   hosts: all
   become: true
   gather_facts: false
+  pre_tasks:
+    - name: Bootstrap
+      ansible.builtin.import_role:
+        name: buluma.bootstrap
+    - name: Gather facts
+      ansible.builtin.setup:
+    - name: Create MariaDB config directory
+      ansible.builtin.file:
+        path: /etc/my.cnf.d
+        state: directory
+        mode: "0755"
+      when: ansible_facts['os_family'] == "RedHat"
+      failed_when: false
+    - name: Configure MariaDB innodb row format
+      ansible.builtin.copy:
+        content: |
+          [mysqld]
+          innodb_default_row_format = dynamic
+        dest: /etc/my.cnf.d/zabbix-innodb.cnf
+        mode: "0644"
+      when: ansible_facts['os_family'] == "RedHat"
+      failed_when: false
   roles:
     - role: buluma.bootstrap
     - role: buluma.selinux

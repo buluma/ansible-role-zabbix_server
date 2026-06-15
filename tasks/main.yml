@@ -14,12 +14,23 @@
       - zabbix-server-mysql
       - zabbix-sql-scripts
     state: present
+- name: Find zabbix schema archive
+  ansible.builtin.find:
+    paths: /usr/share/zabbix-sql-scripts/mysql
+    patterns: "*.sql.gz"
+  register: _zabbix_sql_gz
+
+- name: Set zabbix schema paths
+  ansible.builtin.set_fact:
+    _zabbix_schema_gz: "{{ _zabbix_sql_gz.files[0].path }}"
+    _zabbix_schema_sql: "{{ _zabbix_sql_gz.files[0].path | regex_replace('\\.gz$', '') }}"
+  when: _zabbix_sql_gz.matched > 0
+
 - name: Unarchive zabbix schema
   ansible.builtin.command:
-    cmd: gunzip /usr/share/zabbix-sql-scripts/mysql/server.sql.gz
-    creates: /usr/share/zabbix-sql-scripts/mysql/server.sql
-  loop_control:
-    label: "{{ item.path }}"
+    cmd: "gunzip {{ _zabbix_schema_gz }}"
+    creates: "{{ _zabbix_schema_sql }}"
+  when: _zabbix_sql_gz.matched > 0
   notify:
     - Import zabbix schema
     - Restart zabbix_server
