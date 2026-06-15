@@ -16,11 +16,13 @@
         mode: "0755"
       when: ansible_facts['os_family'] == "RedHat"
       failed_when: false
-    - name: Configure MariaDB innodb row format
+    - name: Configure MariaDB for Zabbix schema import
       ansible.builtin.copy:
         content: |
           [mysqld]
           innodb_default_row_format = dynamic
+          innodb_file_per_table = ON
+          innodb_strict_mode = 0
         dest: /etc/my.cnf.d/zabbix-innodb.cnf
         mode: "0644"
       when: ansible_facts['os_family'] == "RedHat"
