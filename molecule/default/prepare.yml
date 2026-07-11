@@ -3,45 +3,18 @@
   hosts: all
   become: true
   gather_facts: false
+
   pre_tasks:
-    - name: Bootstrap
-      ansible.builtin.import_role:
-        name: buluma.bootstrap
-    - name: Gather facts
-      ansible.builtin.setup:
-    - name: Create MariaDB config directory
-      ansible.builtin.file:
-        path: /etc/my.cnf.d
-        state: directory
-        mode: "0755"
-      when: ansible_facts['os_family'] == "RedHat"
+    - name: Install sudo if missing
+      ansible.builtin.raw: "{{ ansible_pkg_mgr | default('dnf') }} install -y sudo}"
+      become: false
+      changed_when: false
       failed_when: false
-    - name: Configure MariaDB for Zabbix schema import
-      ansible.builtin.copy:
-        content: |
-          [mysqld]
-          innodb_default_row_format = dynamic
-          innodb_file_per_table = ON
-          innodb_strict_mode = 0
-        dest: /etc/my.cnf.d/zabbix-innodb.cnf
-        mode: "0644"
-      when: ansible_facts['os_family'] == "RedHat"
-      failed_when: false
+
   roles:
     - role: buluma.bootstrap
     - role: buluma.selinux
     - role: buluma.container_docs
-    - mysql_databases:
-        - collation: utf8_bin
-          encoding: utf8
-          name: zabbix
-      mysql_users:
-        - name: zabbix
-          password: zabbix
-          priv: zabbix.*:ALL
-      role: buluma.mysql
     - role: buluma.ca_certificates
     - role: buluma.zabbix_repository
-      zabbix_repository_version_major: "7.0"
-      zabbix_repository_version_minor: 3
     - role: buluma.core_dependencies
