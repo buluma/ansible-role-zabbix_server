@@ -34,7 +34,7 @@
   notify:
     - Import zabbix schema
     - Restart zabbix_server
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Configure selinux
   when:
     - ansible_facts['selinux'].status is defined
@@ -58,7 +58,7 @@
         - Create selinux mod for zabbix_server
         - Create selinux pp for zabbix_server
         - Load selinux pp for zabbix_server
-      # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 - name: Configure zabbix_server
@@ -68,7 +68,7 @@
     src: zabbix_server.conf.j2
   notify:
     - Restart zabbix_server
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Start and enable zabbix_server
   ansible.builtin.service:
     enabled: true
