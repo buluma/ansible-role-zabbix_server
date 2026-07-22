@@ -65,6 +65,24 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - role: buluma.ca_certificates
     - role: buluma.zabbix_repository
     - role: buluma.core_dependencies
+    - role: buluma.mysql
+
+  tasks:
+    - name: Create zabbix database
+      ansible.mysql.mysql_db:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: zabbix
+        state: present
+
+    - name: Create zabbix database user
+      ansible.mysql.mysql_user:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: zabbix
+        password: zabbix
+        priv: "zabbix.*:ALL"
+        state: present
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -113,9 +131,8 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/r/buluma/docker-molecule-images)|10, 9|
+|[EL](https://hub.docker.com/r/buluma/docker-molecule-images)|9|
 |[Debian](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
-|[Fedora](https://hub.docker.com/r/buluma/docker-molecule-images)|44, 43|
 |[Ubuntu](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done on:
