@@ -40,3 +40,21 @@
     - role: buluma.ca_certificates
     - role: buluma.zabbix_repository
     - role: buluma.core_dependencies
+    - role: buluma.mysql
+
+  tasks:
+    - name: Create zabbix database
+      ansible.mysql.mysql_db:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: zabbix
+        state: present
+
+    - name: Create zabbix database user
+      ansible.mysql.mysql_user:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        name: zabbix
+        password: zabbix
+        priv: "zabbix.*:ALL"
+        state: present
