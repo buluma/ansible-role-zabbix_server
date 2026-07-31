@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-zabbix_server/tree/HEAD)
+## [26.6.3](https://github.com/buluma/ansible-role-zabbix_server/tree/26.6.3) (2026-07-22)
 
-[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/26.6.2...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-zabbix_server/compare/26.6.2...26.6.3)
 
 **Closed issues:**
 
